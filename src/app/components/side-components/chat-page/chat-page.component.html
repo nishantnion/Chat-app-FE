@@ -1,0 +1,48 @@
+<div class="chat-leftsidebar me-lg-1">
+  <div class="tab-content" >
+    <div class="container">
+      <div class="px-4 pt-4">
+        <h4 class="chat-title">Chats</h4>
+
+        <div class="Search">
+          <input
+            class="form-control sear mt-4"
+            type="search"
+            placeholder="Search messages or users"
+            aria-label="Search"
+          />
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="text-muted">
+          <p
+            class="mt-4"
+            style="color: white; font-size: 1.2rem; font-weight: 500"
+          >
+            Recent
+          </p>
+        </div>
+      </div>
+      <div class="chat-box mt-4" *ngFor="let item of allMessages">
+        <div class="chat-block">
+          <div class="imgbx">
+            <img
+              alt=""
+              class="rounded-circle avatar-lg img-thumbnail cover"
+              src="{{item.recipient.profilePicture}}"
+            />
+            <span class="online_icon"></span>
+          </div>
+          <div class="details">
+            <div class="listHead">
+              <h4>{{item.recipient.name}}</h4>
+              <p class="time">05min</p>
+            </div>
+            <div class="message">
+              <p>{{item.messages.slice(-1)[0].content}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

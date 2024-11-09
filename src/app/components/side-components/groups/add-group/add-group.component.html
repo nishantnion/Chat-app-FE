@@ -1,0 +1,161 @@
+<div class="modal-content">
+  <div _ngcontent-elo-c125="" class="modal-content">
+    <div _ngcontent-elo-c125="" class="modal-header">
+      <h5
+        _ngcontent-elo-c125=""
+        id="addgroup-exampleModalLabel"
+        class="modal-title font-size-16"
+      >
+        Create New Group
+      </h5>
+      <button
+        _ngcontent-elo-c125=""
+        type="button"
+        data-dismiss="modal"
+        aria-label="Close"
+        class="btn-close"
+        (click)="onNoClick()"
+      ></button>
+    </div>
+    <div _ngcontent-elo-c125="" class="modal-body p-4">
+      <form
+        _ngcontent-elo-c125=""
+        novalidate=""
+        class="ng-untouched ng-pristine ng-valid"
+        [formGroup]="MyGroupForm"
+        
+      >
+        <div _ngcontent-elo-c125="" class="mb-4">
+          <label
+            _ngcontent-elo-c125=""
+            for="addgroupname-input"
+            class="form-label"
+            >Group Name</label
+          ><input
+            _ngcontent-elo-c125=""
+            type="text"
+            id="addgroupname-input"
+            class="form-control"
+            placeholder="Enter Group Name"
+            formControlName = 'name'
+          />
+        </div>
+        <div _ngcontent-elo-c125="" class="mb-4">
+          <label _ngcontent-elo-c125="" class="form-label">Group Members</label>
+          <div _ngcontent-elo-c125="" class="mb-3">
+            <button
+            _ngcontent-elo-c125=""
+            type="button"
+            (click)="toggleCollapse()"
+            class="btn btn-light btn-sm"
+            aria-expanded="false"
+            >
+              Select Members
+            </button>
+          </div>
+          <div
+          _ngcontent-elo-c125=""
+          id="groupmembercollapse"
+          [ngClass]="{ collapse: !isCollapsed, show: isCollapsed }"
+          >
+            <div _ngcontent-elo-c125="" class="card border">
+              <div _ngcontent-elo-c125="" class="card-header">
+                <h5 _ngcontent-elo-c125="" class="font-size-15 mb-0">
+                  Contacts
+                </h5>
+              </div>
+              <div _ngcontent-elo-c125="" class="card-body p-2">
+                <perfect-scrollbar
+                  _ngcontent-elo-c125=""
+                  data-simplebar=""
+                  style="height: 150px"
+                  ><div
+                    style="position: static"
+                    class="ps"
+                    ng-reflect-disabled="false"
+                  >
+                    <div class="ps-content">
+                      <div _ngcontent-elo-c125="">
+                        <!-- <div
+                          _ngcontent-elo-c125=""
+                          class="p-3 font-weight-bold text-primary"
+                        >
+                          A
+                        </div> -->
+                        <ul _ngcontent-elo-c125="" class="list-unstyled contact-list">
+                          <li _ngcontent-elo-c125="" *ngFor="let item of allmembers">
+                            <div _ngcontent-elo-c125="" class="form-check">
+                              <input
+                                _ngcontent-elo-c125=""
+                                type="checkbox"
+                                [id]="'memberCheck' + item.username"
+                                class="form-check-input"
+                                (change)="toggleMemberSelection(item.username)"
+                                [checked]="isSelected(item.username)"
+                              />
+                              <label
+                                _ngcontent-elo-c125=""
+                                [for]="'memberCheck' + item.username"
+                                class="form-check-label"
+                                >{{ item.username | titlecase}}</label
+                              >
+                            </div>
+                          </li>
+                        </ul>
+                        
+                      </div>
+                    </div>
+                    <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px">
+                      <div
+                        class="ps__thumb-x"
+                        tabindex="0"
+                        style="left: 0px; width: 0px"
+                      ></div>
+                    </div>
+                    <div class="ps__rail-y" style="top: 0px; right: 0px">
+                      <div
+                        class="ps__thumb-y"
+                        tabindex="0"
+                        style="top: 0px; height: 0px"
+                      ></div>
+                    </div></div
+                ></perfect-scrollbar>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div _ngcontent-elo-c125="" class="form-group">
+          <label
+            _ngcontent-elo-c125=""
+            for="addgroupdescription-input"
+            class="form-label"
+            >Description</label
+          ><textarea
+            _ngcontent-elo-c125=""
+            id="addgroupdescription-input"
+            rows="3"
+            class="form-control"
+            placeholder="Enter description"
+            formControlName = "description"
+          ></textarea>
+        </div>
+      </form>
+    </div>
+    <div _ngcontent-elo-c125="" class="modal-footer">
+      <button
+        _ngcontent-elo-c125=""
+        type="button"
+        data-dismiss="modal"
+        class="btn btn-link"
+        (click)="onNoClick()"
+      >
+        Close</button
+      ><button _ngcontent-elo-c125="" type="submit" class="btn btn-primary" (click)="createGroup()">
+        Create Groups
+      </button>
+    </div>
+  </div>
+</div>

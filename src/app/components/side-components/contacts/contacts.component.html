@@ -1,0 +1,42 @@
+<div class="contact-page me-lg-1">
+  <div class="container">
+    <div class="px-4 pt-4">
+      <div class="navbar navbar-light">
+        <h3 class="contact-title">Contacts</h3>
+        <div class="mb-2">
+          <i
+            class="fas fa-user-plus"
+            title="Add Contact"
+            style="cursor: pointer"
+            (click)="openDialog()"
+          ></i>
+        </div>
+      </div>
+      <div class="Search">
+        <input
+          class="form-control search mt-2"
+          type="search"
+          placeholder="Search Contacts..."
+          aria-label="Search"
+        />
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <div class="contact-box">
+      <div class="contact-block">
+        <h4>A</h4>
+      </div>
+
+      <div class="navbar navbar-light px-5"  *ngFor="let item of users">
+        <h6 class="contacts">{{item.name}}</h6>
+
+        <div class="mb-2">
+          <i
+            class="fas fa-ellipsis-v"
+            style="cursor: pointer; font-size: 0.9em"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
